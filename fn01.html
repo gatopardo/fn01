@@ -6,6 +6,14 @@
  
       </head>
       <body>
+     <p>
+        Saludos  
+               <br/>
+         a todos
+        </p>
+
+           <p> La fecha de hoy es {{.Date}}</p>
+           <p> Y la hora es {{.Time}}</p>
 
       <script>
         window.fbAsyncInit = function() {
@@ -44,17 +52,11 @@
   scope="public_profile,email"
   onlogin="checkLoginState();">
 </fb:login-button>
-<p>
- Saludos  
-   <br/>
- a todos
-</p>
-
         <ul>
             <li> <a  href="/home">Hora</a></li> 
             <li> <a  href="/">Inicio</a></li> 
             <li> <a  href="/test2">test 2</a></li> 
-            <li> <a  href="/test3">test 2</a></li> 
+            <li> <a  href="/test3">test 3</a></li> 
         </ul>
 
 

@@ -46,9 +46,8 @@ func main() {
 }
 
 func DisplayRadioButtons(w http.ResponseWriter, r *http.Request){
- // Display some radio buttons to the user
 
-   Title := "Which do you prefer?"
+   Title := "Que prefieres?"
    MyRadioButtons := []RadioButton{
      RadioButton{"animalselect", "cats", false, false, "Cats"},
      RadioButton{"animalselect", "dogs", false, false, "Dogs"},
@@ -59,16 +58,15 @@ func DisplayRadioButtons(w http.ResponseWriter, r *http.Request){
     PageRadioButtons : MyRadioButtons,
     }
 
-   t, err := template.ParseFiles("select.html") //parse the html file homepage.html
-   if err != nil { // if there is an error
-     log.Print("template parsing error: ", err) // log it
+   t, err := template.ParseFiles("select.html")
+   if err != nil {
+     log.Print("template parsing error: ", err)
    }
 
-   err = t.Execute(w, MyPageVariables) //execute the template and pass it the HomePageVars struct to fill in the gaps
-   if err != nil { // if there is an error
+   err = t.Execute(w, MyPageVariables)
+   if err != nil {
      log.Print("template executing error: ", err) //log it
    }
-
 }
 
 func UserSelected(w http.ResponseWriter, r *http.Request){
@@ -79,94 +77,93 @@ func UserSelected(w http.ResponseWriter, r *http.Request){
  // so get the animal which has been selected
   youranimal := r.Form.Get("animalselect")
 
-  Title := "Your preferred animal"
+  Title := "Tu animal preferido"
   MyPageVariables := PageVariables{
     PageTitle: Title,
     Answer : youranimal,
     }
 
- // generate page by passing page variables into template
-    t, err := template.ParseFiles("select.html") //parse the html file homepage.html
-    if err != nil { // if there is an error
-      log.Print("template parsing error: ", err) // log it
+    t, err := template.ParseFiles("select.html") //
+    if err != nil { // 
+      log.Print("template parsing error: ", err) //
     }
 
-    err = t.Execute(w, MyPageVariables) //execute the template and pass it the HomePageVars struct to fill in the gaps
-    if err != nil { // if there is an error
-      log.Print("template executing error: ", err) //log it
+    err = t.Execute(w, MyPageVariables) //
+    if err != nil { //
+      log.Print("template executing error: ", err) //
     }
 }
 
 
 func HomePage(w http.ResponseWriter, r *http.Request){
 
-    now := time.Now() // find the time right now
-    HomePageVars := HomeVariables{ //store the date and time in a struct
+    now := time.Now() //
+    HomePageVars := HomeVariables{ //
       Date: now.Format("02-01-2006"),
       Time: now.Format("15:04:05"),
     }
 
-    t, err := template.ParseFiles("homepage.html") //parse the html file homepage.html
-    if err != nil { // if there is an error
-	  log.Print("template parsing error: ", err) // log it
+    t, err := template.ParseFiles("homepage.html") //
+    if err != nil { //
+	  log.Print("template parsing error: ", err) //
 	}
-    err = t.Execute(w, HomePageVars) //execute the template and pass it the HomePageVars struct to fill in the gaps
-    if err != nil { // if there is an error
-	  log.Print("template executing error: ", err) //log it
+    err = t.Execute(w, HomePageVars) //
+    if err != nil { //
+	  log.Print("template executing error: ", err) //
 	}
 }
 
 func Testfn(w http.ResponseWriter, r *http.Request){
 
-    now := time.Now() // find the time right now
-    HomePageVars := HomeVariables{ //store the date and time in a struct
+    now := time.Now() //
+    HomePageVars := HomeVariables{ //
       Date: now.Format("02-01-2006"),
       Time: now.Format("15:04:05"),
     }
 
-    t, err := template.ParseFiles("fn01.html") //parse the html file homepage.html
-    if err != nil { // if there is an error
-	  log.Print("template parsing error: ", err) // log it
+    t, err := template.ParseFiles("fn01.html") //
+    if err != nil { //
+	  log.Print("template parsing error: ", err) //
 	}
-    err = t.Execute(w, HomePageVars) //execute the template and pass it the HomePageVars struct to fill in the gaps
-    if err != nil { // if there is an error
-	  log.Print("template executing error: ", err) //log it
+    err = t.Execute(w, HomePageVars) //
+    if err != nil { //
+	  log.Print("template executing error: ", err) //
 	}
 }
 
 func Test02(w http.ResponseWriter, r *http.Request){
 
-    now := time.Now() // find the time right now
-    HomePageVars := HomeVariables{ //store the date and time in a struct
+    now := time.Now() //
+    HomePageVars := HomeVariables{ //
       Date: now.Format("02-01-2006"),
       Time: now.Format("15:04:05"),
     }
 
-    t, err := template.ParseFiles("fn02.html") //parse the html file homepage.html
-    if err != nil { // if there is an error
-	  log.Print("template parsing error: ", err) // log it
+    t, err := template.ParseFiles("fn02.html") //
+    if err != nil { //
+	  log.Print("template parsing error: ", err) //
 	}
-    err = t.Execute(w, HomePageVars) //execute the template and pass it the HomePageVars struct to fill in the gaps
-    if err != nil { // if there is an error
-	  log.Print("template executing error: ", err) //log it
+    err = t.Execute(w, HomePageVars) //
+    if err != nil { //
+	  log.Print("template executing error: ", err) //
 	}
 }
 
 func Test03(w http.ResponseWriter, r *http.Request){
 
-    now := time.Now() // find the time right now
-    HomePageVars := HomeVariables{ //store the date and time in a struct
+    now := time.Now() //
+    HomePageVars := HomeVariables{ //
       Date: now.Format("02-01-2006"),
       Time: now.Format("15:04:05"),
     }
 
-    t, err := template.ParseFiles("fn03.html") //parse the html file homepage.html
-    if err != nil { // if there is an error
-	  log.Print("template parsing error: ", err) // log it
+    t, err := template.ParseFiles("fn03.html") //
+    if err != nil { //
+	  log.Print("template parsing error: ", err) //
 	}
-    err = t.Execute(w, HomePageVars) //execute the template and pass it the HomePageVars struct to fill in the gaps
-    if err != nil { // if there is an error
-	  log.Print("template executing error: ", err) //log it
+    err = t.Execute(w, HomePageVars) //
+    if err != nil { //
+	  log.Print("template executing error: ", err) //
 	}
 }
 
