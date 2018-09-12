@@ -34,12 +34,14 @@ func main() {
   http.HandleFunc("/selected", UserSelected)
   http.HandleFunc("/home", HomePage)
   http.HandleFunc("/test", Testfn)
+  http.HandleFunc("/test2", Test02)
+  http.HandleFunc("/test3", Test03)
 
 //  log.Fatal(http.ListenAndServe(":8080", nil))
 	fmt.Println("listening...")
- 	err := http.ListenAndServe(GetPort(), nil)
+	err := http.ListenAndServe(GetPort(), nil)
 	if err != nil {
- 		log.Fatal("ListenAndServe: ", err)
+		log.Fatal("ListenAndServe: ", err)
         }
 }
 
@@ -132,14 +134,50 @@ func Testfn(w http.ResponseWriter, r *http.Request){
 	}
 }
 
+func Test02(w http.ResponseWriter, r *http.Request){
+
+    now := time.Now() // find the time right now
+    HomePageVars := HomeVariables{ //store the date and time in a struct
+      Date: now.Format("02-01-2006"),
+      Time: now.Format("15:04:05"),
+    }
+
+    t, err := template.ParseFiles("fn02.html") //parse the html file homepage.html
+    if err != nil { // if there is an error
+	  log.Print("template parsing error: ", err) // log it
+	}
+    err = t.Execute(w, HomePageVars) //execute the template and pass it the HomePageVars struct to fill in the gaps
+    if err != nil { // if there is an error
+	  log.Print("template executing error: ", err) //log it
+	}
+}
+
+func Test03(w http.ResponseWriter, r *http.Request){
+
+    now := time.Now() // find the time right now
+    HomePageVars := HomeVariables{ //store the date and time in a struct
+      Date: now.Format("02-01-2006"),
+      Time: now.Format("15:04:05"),
+    }
+
+    t, err := template.ParseFiles("fn03.html") //parse the html file homepage.html
+    if err != nil { // if there is an error
+	  log.Print("template parsing error: ", err) // log it
+	}
+    err = t.Execute(w, HomePageVars) //execute the template and pass it the HomePageVars struct to fill in the gaps
+    if err != nil { // if there is an error
+	  log.Print("template executing error: ", err) //log it
+	}
+}
+
 
  func GetPort() string {
- 	var port = os.Getenv("PORT")
- 	// Set a default port if there is nothing in the environment
- 	if port == "" {
- 		port = "4747"
- 		fmt.Println("INFO: No PORT environment variable detected, defaulting to " + port)
- 	}
- 	return ":" + port
+	var port = os.Getenv("PORT")
+	// Set a default port if there is nothing in the environment
+	if port == "" {
+		port = "4747"
+		fmt.Println("INFO: No PORT environment variable detected, defaulting to " + port)
+	}
+	return ":" + port
  }
 
