@@ -36,6 +36,7 @@ func main() {
   http.HandleFunc("/test", Testfn)
   http.HandleFunc("/test2", Test02)
   http.HandleFunc("/test3", Test03)
+  http.HandleFunc("/test4", Test04)
 
 //  log.Fatal(http.ListenAndServe(":8080", nil))
 	fmt.Println("listening...")
@@ -161,6 +162,22 @@ func Test03(w http.ResponseWriter, r *http.Request){
     if err != nil { //
 	  log.Print("template parsing error: ", err) //
 	}
+    err = t.Execute(w, HomePageVars) //
+    if err != nil { //
+	  log.Print("template executing error: ", err) //
+	}
+}
+
+func Test04(w http.ResponseWriter, r *http.Request){
+
+
+    t, err := template.ParseFiles("fn03.html") //
+    if err != nil { //
+	  log.Print("template parsing error: ", err) //
+	}
+     res :=  GenerateAccessToken()
+      HomePageVars :=  res
+
     err = t.Execute(w, HomePageVars) //
     if err != nil { //
 	  log.Print("template executing error: ", err) //

@@ -1,6 +1,13 @@
 {
 	"comment": "",
 	"ignore": "test",
-	"package": [],
+	"package": [
+		{
+			"checksumSHA1": "WOuwDH2DrJIVjhRGP1j2ZolIIwQ=",
+			"path": "github.com/madebyais/facebook-go-sdk",
+			"revision": "10fec9b832160d7def0330363895c5b6da445319",
+			"revisionTime": "2017-10-24T01:13:47Z"
+		}
+	],
 	"rootPath": "gwp/ch01/fn01"
 }
