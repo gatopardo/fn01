@@ -171,7 +171,7 @@ func Test03(w http.ResponseWriter, r *http.Request){
 func Test04(w http.ResponseWriter, r *http.Request){
 
 
-    t, err := template.ParseFiles("fn03.html") //
+    t, err := template.ParseFiles("fn04.html") //
     if err != nil { //
 	  log.Print("template parsing error: ", err) //
 	}
